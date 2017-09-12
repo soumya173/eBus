@@ -1,0 +1,35 @@
+/* 
+
+email: hemanta.niitdgp@gmail.com
+
+Page details
+	Bus Booking Counter
+		- Details of the bus	(index)
+		- Timings
+		- Booking Date
+		- Calculated fare
+		- Payment
+		
+Tables required
+	- Bus details
+		- Bus No (PRI)						[ INT ]
+		- From 							[ VARCHAR ]
+		- To 							[ VARCHAR ]
+		- Time of leaving 					[ Time ]
+		- seat capacity 					[ INT ]
+		- seat left for booking 				[ INT ]
+	- Customer Bookings
+		- Booking Id (PRI) 					[ INT ]
+		- Bus no (FOR) 						[ INT ]
+		- Customer UserId					[ INT ]
+		- No of seats booked 					[ INT ]
+		- seat no's 						[ INT ]
+		- Journey Date 						[ Date]
+	- Customer Login details
+		- Customer UserId (PRI)					[INT]
+		- Customer name 					[ VARCHAR ]
+		- Customer age 						[ INT ]
+		- Email							[ VARCHAR ]
+		- Mobile number						[ INT ]
+
+*/

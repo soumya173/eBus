@@ -1,0 +1,23 @@
+.mainBody{
+	background-image: url("photos/bus.jpg");
+	background-repeat: no-repeat;
+	height: 680px;
+}
+.loginBox{
+	padding: 20px;
+	width: 600px;
+	position: relative;
+	top: 100px;
+	left: 300px;
+	text-align: center;
+}
+.table tr td{
+	text-align: center;
+}
+.footer{
+	height: 80px;
+	width: 100%;
+	background-color: rgb(158, 158, 158);
+	padding-top: 20px;
+	text-align: center;
+}
