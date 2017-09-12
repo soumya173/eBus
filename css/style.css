@@ -1,1 +1,21 @@
-/* Style sheet */
+/* Elements */
+a{
+  transition: all 0.2s;
+}
+a:hover{
+  text-decoration: none;
+}
+
+/* Classes & IDs */
+.site-body{}
+.site-header{
+  border-radius: 0px !important;
+}
+.site-footer{
+  background-color: #ccc;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
