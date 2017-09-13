@@ -130,8 +130,8 @@
 // Login section
 if (isset($_POST['login'])) {
   if (!empty($_POST['lemail']) && !empty($_POST['lpassword'])) {
-    $email = mysqli_real_escape_string($_POST['lemail']);
-    $password = mysqli_real_escape_string($_POST['lpassword']);
+    $email = mysqli_real_escape_string($conn, $_POST['lemail']);
+    $password = mysqli_real_escape_string($conn, $_POST['lpassword']);
 
     $query = "SELECT passenger_id,email FROM passengers WHERE email='$email' AND password='$password'";
     $result = mysqli_query($conn, $query);
@@ -141,7 +141,7 @@ if (isset($_POST['login'])) {
     if ($count == 1) {
       $_SESSION['passenger_id'] = $row['passenger_id'];
 
-      header('Location: profile.php');
+      header('Location: index.php');
     }else{
       $_SESSION['message'] = "Something went wrong. Please <a href=\"index.php\">try again</a>.";
       $_SESSION['type'] = "error";
@@ -181,7 +181,5 @@ if (isset($_POST['signup'])) {
 }
 
 mysqli_close($conn);
-
-// echo($_SERVER['REQUEST_URI']);
 
 ?>

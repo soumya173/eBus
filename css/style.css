@@ -9,13 +9,57 @@ a:hover, a:focus{
 /* Classes & IDs */
 .site-body{}
 .site-header{
-  border-radius: 0px !important;
+  border-radius: 0px;
+  margin-bottom: 0px;
 }
+
+/* Feature section */
+.section-header{
+  text-align: center;
+  font-weight: bold;
+}
+.section-header p{
+  color: #999;
+  font-weight: normal;
+}
+.feature-item, .review-section, .counter-section{
+  padding: 15px;
+  text-align: center;
+}
+.feature-item span{
+  font-size: 500%;
+  color: #005588;
+  transition: all 0.2s;
+}
+.feature-item span:hover{
+  transform: translateY(-10px);
+}
+
+/* Counter section */
+.counter-section h1{
+  font-size: 500%;
+  font-weight: bold;
+  transition: all 0.2s
+}
+.counter-section h1:hover{
+  transform: scale(1.2);
+  color: #005588;
+}
+.counter-section h5{
+  color: #999;
+}
+
+/* Review section */
+.review-section{
+  transition: all 0.2s;
+}
+.review-section:hover{
+  transform: translateY(-10px);
+}
+
+
+/* Footer section */
 .site-footer{
   background-color: #ccc;
   padding: 20px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
 }
