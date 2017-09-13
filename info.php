@@ -19,11 +19,32 @@
     <!-- Including the navbar -->
     <?php include('header.php'); ?>
 
+    <?php
+
+      $alert_class = '';
+      if (isset($_SESSION['message']) && isset($_SESSION['type'])) {
+          if ($_SESSION['type'] == 'error') {
+            $alert_class = 'alert-danger';
+          }elseif ($_SESSION['type'] == 'success') {
+            $alert_class = 'alert-success';
+          }
+      }
+
+    ?>
+
     <!-- Site body -->
     <div class="container-fluid site-body">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-4 col-sm-offset-4">
+          <div class="alert <?php echo($alert_class); ?>">
+            <?php echo($_SESSION['message']); ?>
+            <?php
 
+              unset($_SESSION['message']);
+              unset($_SESSION['type']);
+
+            ?>
+          </div>
         </div>
       </div>
     </div> <!-- /site-body -->

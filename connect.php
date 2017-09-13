@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-// Global variables
-$message = '';
-
 // Connection variables
 $server_name = "localhost";
 $username = "root";
