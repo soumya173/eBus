@@ -90,6 +90,7 @@ body{font-family: Vollkorn;}
   background-image: url("../images/profile_back.jpg");
 }
 .profile-tabs li a{color: #fff;}
+.profile-tabs li a:hover, .profile-tabs li a:focus{background-color: #808080;}
 .booking-container h3, .booking-container p{
   font-family: Oswald;
   text-align: center;
