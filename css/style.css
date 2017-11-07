@@ -5,7 +5,20 @@ a{
 a:hover, a:focus{
   text-decoration: none;
 }
+body{font-family: Vollkorn;}
 
+/* ======= navbar ======= */
+.nav-img{
+  color: #2bace2 !important;
+  font-family: Oswald;
+  font-weight: bold;
+}
+.nav-img img{
+  display: contents;
+  margin-right: 5px;
+}
+
+/* ======= index ======= */
 /* Classes & IDs */
 .site-body{}
 .site-header{
@@ -21,6 +34,7 @@ a:hover, a:focus{
 .section-header p{
   color: #999;
   font-weight: normal;
+  font-size: 18px;
 }
 .feature-item, .review-section, .counter-section{
   padding: 15px;
@@ -39,7 +53,8 @@ a:hover, a:focus{
 .counter-section h1{
   font-size: 500%;
   font-weight: bold;
-  transition: all 0.2s
+  font-family: Oswald;
+  transition: all 0.2s;
 }
 .counter-section h1:hover{
   transform: scale(1.2);
@@ -57,9 +72,26 @@ a:hover, a:focus{
   transform: translateY(-10px);
 }
 
-
 /* Footer section */
 .site-footer{
   background-color: #ccc;
   padding: 20px;
 }
+
+/* ======= info ======= */
+.info-row{
+  margin: 50px 0px;
+}
+
+/* ======= profile ======= */
+.profile-body{
+  padding: 50px 0px;
+  color: #fff;
+  background-image: url("../images/profile_back.jpg");
+}
+.profile-tabs li a{color: #fff;}
+.booking-container h3, .booking-container p{
+  font-family: Oswald;
+  text-align: center;
+}
+.booking-container table tbody{font-family: Oswald;}
