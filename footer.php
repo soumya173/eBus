@@ -9,3 +9,5 @@
     </div>
   </div>
 </div> <!-- /Footer -->
+
+<?php mysqli_close($conn); ?>

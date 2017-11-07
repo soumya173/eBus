@@ -1,5 +1,3 @@
-<?php include('connect.php'); ?>
-
 <!-- Navbar -->
 <nav class="navbar navbar-inverse site-header">
  <div class="container-fluid">
@@ -9,22 +7,25 @@
        <span class="icon-bar"></span>
        <span class="icon-bar"></span>
      </button>
-     <a class="navbar-brand" href="index.php">eBus</a>
+     <a class="navbar-brand nav-img" href="index.php"><img src="images/bus_logo.png" alt="" height="20px" width="20px">eBus</a>
    </div>
    <div class="collapse navbar-collapse" id="topNavbar">
      <ul class="nav navbar-nav">
-       <li class="active"><a href="index.php">Home</a></li>
+       <li
+          <?php
+            if(isset($_SESSION['page']) && $_SESSION['page'] == 'index'){
+              echo(' class="active"');
+            }
+          ?> ><a href="index.php">Home</a></li>
        <li><a href="#">Page 1</a></li>
-       <li><a href="#">Page 2</a></li>
-       <li><a href="#">Page 3</a></li>
      </ul>
 
      <?php
 
-        if (isset($_SESSION['passenger_id'])) {
+        if (isset($_SESSION['passenger_id']) && $_SESSION['page'] == 'profile') {
           echo('
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+              <li class="active"><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
               <li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Log out</a></li>
             </ul>
           ');
@@ -111,10 +112,8 @@
                 <div class="form-group">
                   <input type="password" class="form-control" name="lpassword" placeholder="Enter Password"  maxlength="30" required>
                 </div>
-                <button type="submit" name="login" class="btn btn-primary">Log In</button>
-              </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" name="login" class="btn btn-primary">Log In</button>
               </div>
             </form>
           </div> <!-- /modal-content -->
@@ -141,9 +140,9 @@ if (isset($_POST['login'])) {
     if ($count == 1) {
       $_SESSION['passenger_id'] = $row['passenger_id'];
 
-      header('Location: index.php');
+      header('Location: profile.php');
     }else{
-      $_SESSION['message'] = "Something went wrong. Please <a href=\"index.php\">try again</a>.";
+      $_SESSION['message'] = "It seems you typed invalid credentials. Please <a href=\"index.php\">try again</a>.";
       $_SESSION['type'] = "error";
 
       header('Location: info.php');
@@ -167,7 +166,7 @@ if (isset($_POST['signup'])) {
 
     $result = mysqli_query($conn, $query);
     if (false===$result) {
-      $_SESSION['message'] = "Something went wrong.<br />Details: ". mysqli_error($conn) ."<br />Please <a href=\"index.php\">try again</a>.";
+      $_SESSION['message'] = "Something went wrong.<br />Error details: ". mysqli_error($conn) ."<br />Please <a href=\"index.php\">try again</a>.";
       $_SESSION['type'] = 'error';
 
       header('Location: info.php');
@@ -179,7 +178,5 @@ if (isset($_POST['signup'])) {
     }
   }
 }
-
-mysqli_close($conn);
 
 ?>
