@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2017 at 08:46 PM
+-- Generation Time: Nov 08, 2017 at 12:02 AM
 -- Server version: 5.7.20-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -45,11 +45,36 @@ CREATE TABLE `passengers` (
   `passenger_id` int(11) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `mobile` int(11) NOT NULL,
+  `mobile` varchar(11) NOT NULL,
   `fname` varchar(20) NOT NULL,
   `mname` varchar(20) DEFAULT NULL,
   `lname` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `passengers`
+--
+
+INSERT INTO `passengers` (`passenger_id`, `email`, `password`, `mobile`, `fname`, `mname`, `lname`) VALUES
+(1, 'soumya173@gmail.com', '1234', '9635031710', 'Soumyajit', '', 'Gorai');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `reservation`
+--
+CREATE TABLE `reservation` (
+`reserve_id` int(11)
+,`passenger_id` int(11)
+,`bus_id` int(11)
+,`seat` int(11)
+,`date` date
+,`timestamp` timestamp
+,`origin` varchar(30)
+,`destination` varchar(30)
+,`dept_time` time
+,`arr_time` time
+);
 
 -- --------------------------------------------------------
 
@@ -77,6 +102,15 @@ CREATE TABLE `route` (
   `origin` varchar(30) NOT NULL,
   `destination` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `reservation`
+--
+DROP TABLE IF EXISTS `reservation`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `reservation`  AS  select `reserve`.`reserve_id` AS `reserve_id`,`reserve`.`passenger_id` AS `passenger_id`,`reserve`.`bus_id` AS `bus_id`,`reserve`.`seat` AS `seat`,`reserve`.`date` AS `date`,`reserve`.`timestamp` AS `timestamp`,`route`.`origin` AS `origin`,`route`.`destination` AS `destination`,`bus`.`dept_time` AS `dept_time`,`bus`.`arr_time` AS `arr_time` from ((`reserve` join `bus`) join `route`) where ((`reserve`.`bus_id` = `bus`.`bus_id`) and (`route`.`route_id` = `bus`.`route_id`)) order by `reserve`.`reserve_id` ;
 
 --
 -- Indexes for dumped tables
@@ -122,7 +156,7 @@ ALTER TABLE `bus`
 -- AUTO_INCREMENT for table `passengers`
 --
 ALTER TABLE `passengers`
-  MODIFY `passenger_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `passenger_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `reserve`
 --
