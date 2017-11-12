@@ -76,7 +76,34 @@
 
     <?php
 
+    // Signup section
+    if (isset($_POST['signup'])) {
+      if (!empty($_POST['semail']) && !empty($_POST['spassword']) && !empty($_POST['cpassword']) && !empty($_POST['fname']) &&  !empty($_POST['lname']) && !empty($_POST['mobile'])) {
 
+        $email = mysqli_real_escape_string($conn, $_POST['semail']);
+        $password = mysqli_real_escape_string($conn, $_POST['spassword']);
+        $cpassword = mysqli_real_escape_string($conn, $_POST['cpassword']);
+        $fname = mysqli_real_escape_string($conn, $_POST['fname']);
+        $mname = mysqli_real_escape_string($conn, $_POST['mname']);
+        $lname = mysqli_real_escape_string($conn, $_POST['lname']);
+        $mobile = mysqli_real_escape_string($conn, $_POST['mobile']);
+
+        $query = "INSERT INTO passengers(email, fname, mname, lname, password, mobile) VALUES('".$email."', '".$fname."', '".$mname."', '".$lname."', '".$password."',". $mobile .")";
+
+        $result = mysqli_query($conn, $query);
+        if (false===$result) {
+          $_SESSION['message'] = "Something went wrong.<br />Error details: ". mysqli_error($conn) ."<br />Please <a href=\"signup.php\">try again</a>.";
+          $_SESSION['type'] = 'error';
+
+          header('Location: info.php');
+        }else{
+          $_SESSION['message'] = "You've successfully registered. You can <a href=\"login.php\">login</a>.";
+          $_SESSION['type'] = 'success';
+
+          header('Location: info.php');
+        }
+      }
+    }
 
     ?>
 

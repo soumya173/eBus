@@ -168,12 +168,12 @@ if (isset($_POST['signup'])) {
 
     $result = mysqli_query($conn, $query);
     if (false===$result) {
-      $_SESSION['message'] = "Something went wrong.<br />Error details: ". mysqli_error($conn) ."<br />Please <a href=\"index.php\">try again</a>.";
+      $_SESSION['message'] = "Something went wrong.<br />Error details: ". mysqli_error($conn) ."<br />Please <a href=\"signup.php\">try again</a>.";
       $_SESSION['type'] = 'error';
 
       header('Location: info.php');
     }else{
-      $_SESSION['message'] = "You've successfully registered. You can <a href=\"index.php\">login</a>.";
+      $_SESSION['message'] = "You've successfully registered. You can <a href=\"login.php\">login</a>.";
       $_SESSION['type'] = 'success';
 
       header('Location: info.php');
