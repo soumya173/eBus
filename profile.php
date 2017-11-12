@@ -16,6 +16,7 @@
     <!-- Required scripts -->
     <script src="js/jquery.min.js" charset="utf-8"></script>
     <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="js/scripts.js" charset="utf-8"></script>
 
   </head>
   <body>

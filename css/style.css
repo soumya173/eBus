@@ -17,10 +17,14 @@ body{font-family: Vollkorn;}
   display: contents;
   margin-right: 5px;
 }
+.site-header{height: 52px;}
+
+/* ======= footer ======= */
+.site-footer{height: 60px;}
 
 /* ======= index ======= */
 /* Classes & IDs */
-.site-body{}
+.site-body{min-height: calc(100vh - 112px);}
 .site-header{
   border-radius: 0px;
   margin-bottom: 0px;
@@ -96,3 +100,20 @@ body{font-family: Vollkorn;}
   text-align: center;
 }
 .booking-container table tbody{font-family: Oswald;}
+
+/* ======= login ======= */
+.login-row{margin: 50px 0px;}
+.login-text{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ======= signup ======= */
+.signup-row{margin: 50px 0px;}
+.signup-text{
+  text-align: center;
+  margin-bottom: 30px;
+}
+.signup-fname{padding-left: 0px;}
+.signup-mname{padding: 0px;}
+.signup-lname{padding-right: 0px;}

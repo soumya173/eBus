@@ -29,7 +29,9 @@
               <li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Log out</a></li>
             </ul>
           ');
-        } else {
+        } elseif ($_SESSION['page'] == 'login' || $_SESSION['page'] == 'signup') {
+          // Show nothing
+        }else {
           echo('
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -142,7 +144,7 @@ if (isset($_POST['login'])) {
 
       header('Location: profile.php');
     }else{
-      $_SESSION['message'] = "It seems you typed invalid credentials. Please <a href=\"index.php\">try again</a>.";
+      $_SESSION['message'] = "It seems you typed invalid credentials. Please <a href=\"login.php\">try again</a>.";
       $_SESSION['type'] = "error";
 
       header('Location: info.php');
